@@ -1,0 +1,52 @@
+class Solution {
+    static int[] endPoints(int[][] matrix, int R, int C) {
+        // code here
+        int i=0,j=0;
+        int dir =0;//0:right 
+        while(i>=0 && i<R && j>=0 && j<C)
+        {
+            if(matrix[i][j]==1)
+            {
+                matrix[i][j]=0;
+                dir = (dir+1)%4; //Change direction clockwise
+            }
+            if(dir ==0 )
+            {
+                j++; //right
+            }
+            else if(dir == 1)
+            {
+                i++; //down
+                
+            }
+            else if(dir == 2)
+            {
+                j--;//left
+            }
+            else if(dir == 3)
+            {
+                i--;//up
+            }
+        }
+            
+        if(dir == 0)
+        {
+            j--;
+        }
+        else if(dir == 1)
+        {
+            i--;
+        }
+        else if(dir == 2)
+        {
+            j++;
+        }
+        else if(dir == 3)
+        {
+            i++;
+        }
+        return new int[]{i,j};
+    }
+        
+    
+}
